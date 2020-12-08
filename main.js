@@ -35,14 +35,15 @@ gameScene.create=function(){
     candy.setScale(0.3,0.3);
     let car=this.add.sprite(410,280,'car');
     car.setScale(0.4,0.4);
-    this.pointer = this.input.activePointer;
+//    this.pointer = this.input.activePointer;
+//    this.press=this.input.touch.startListeners();
 };
         gameScene.update=function(){
-            if (this.pointer.isDown) {
+            if (this.input.activePointer.isDown) {
     this.wheel.rotation += 1;
 }
            
-//            if (this.cursors.isDown)
+//            if (this.press.onTouchStart)
 //    {
 //        this.wheel.rotation += 3;
 //    }
