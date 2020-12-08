@@ -1,7 +1,7 @@
 let gameScene= new Phaser.Scene('Game');
 gameScene.preload=function(){
-    this.load.image('background', 'assets/images.png');
-    this.load.image('wheel', 'assets/wheel2.png');
+    this.load.image('background', 'assets/background_new.png');
+    this.load.image('wheel', 'assets/wheel23.png');
     this.load.image('chocolate', 'assets/chocolate.png');
     this.load.image('toys', 'assets/toys.png');
     this.load.image('books', 'assets/books.png');
@@ -30,18 +30,22 @@ gameScene.create=function(){
     burger.setScale(0.3,0.3);
     let pizza=this.add.sprite(400,70,'pizza');
     pizza.setScale(0.35,0.5);
-    this.cursors = this.input.mousePointer;
+//    this.cursors = this.input.mousePointer;
     let candy=this.add.sprite(120,280,'candy');
     candy.setScale(0.3,0.3);
     let car=this.add.sprite(410,280,'car');
     car.setScale(0.4,0.4);
+    this.pointer = this.input.activePointer;
 };
         gameScene.update=function(){
+            if (this.pointer.isDown) {
+    this.wheel.rotation += 1;
+}
            
-            if (this.cursors.isDown)
-    {
-        this.wheel.rotation += 3;
-    }
+//            if (this.cursors.isDown)
+//    {
+//        this.wheel.rotation += 3;
+//    }
 
         };
         
