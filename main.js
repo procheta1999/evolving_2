@@ -98,7 +98,7 @@ gameScene.create=function(){
             }
         };
         
-        
+  window.onload = function() {      
         let config={
             type:Phaser.AUTO,
             width:640,
@@ -113,3 +113,7 @@ gameScene.create=function(){
             }
         }
         let game=new Phaser.Game(config);
+       window.focus()
+    resize();
+    window.addEventListener("resize", resize, false);
+  }
