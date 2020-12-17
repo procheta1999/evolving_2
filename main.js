@@ -16,21 +16,21 @@ gameScene.preload=function(){
 gameScene.create=function(){
    
     let bg=this.add.sprite(0,0,'background');
-    bg.setPosition(640/2,400/2);
+    bg.setPosition(640/2,450/2);
     bg.setScale(2.9,2.9);
     
     this.wheel=this.add.sprite(150,180,'wheel',{align:"center"});
-    this.wheel.setScale(1,1);
+    this.wheel.setScale(1.3,1.3);
      this.physics.add.existing(this.wheel);
-    this.pin=this.add.sprite(160,80,'pin');
+    this.pin=this.add.sprite(140,60,'pin');
     this.pin.setScale(0.3,0.3);
-    this.text = this.add.text(2,300, "Press to Spin the wheel", {
-            font: "bold 32px Arial",
+    this.text = this.add.text(2,340, "Press to Spin the wheel", {
+            font: "bold 50px Arial",
             align: "center",
             color: "black"
         });
-    this.text_more = this.add.text(80,350, " ", {
-            font: "bold 32px Arial",
+    this.text_more = this.add.text(80,390, " ", {
+            font: "bold 50px Arial",
             align: "center",
             color: "black"
         });
@@ -102,7 +102,7 @@ gameScene.create=function(){
         let config={
             type:Phaser.AUTO,
             width:640,
-            height:400,
+            height:450,
             scene: gameScene,
             physics:{
                 default: 'arcade',
