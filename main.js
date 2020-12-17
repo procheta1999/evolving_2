@@ -24,7 +24,7 @@ gameScene.create=function(){
      this.physics.add.existing(this.wheel);
     this.pin=this.add.sprite(140,60,'pin');
     this.pin.setScale(0.3,0.3);
-    this.text = this.add.text(2,340, "Press to Spin the wheel", {
+    this.text = this.add.text(1,340, "Press to Spin the wheel", {
             font: "bold 50px Arial",
             align: "center",
             color: "black"
@@ -117,3 +117,18 @@ gameScene.create=function(){
     resize();
     window.addEventListener("resize", resize, false);
   }
+  function resize() {
+    var canvas = document.querySelector("canvas");
+    var windowWidth = window.innerWidth;
+    var windowHeight = window.innerHeight;
+    var windowRatio = windowWidth / windowHeight;
+    var gameRatio = 640 / 450;
+    if(windowRatio < gameRatio){
+        canvas.style.width = windowWidth + "px";
+        canvas.style.height = (windowWidth / gameRatio) + "px";
+    }
+    else{
+        canvas.style.width = (windowHeight * gameRatio) + "px";
+        canvas.style.height = windowHeight + "px";
+    }
+}
