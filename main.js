@@ -10,10 +10,10 @@ gameScene.create=function(){
     bg.setPosition(640/2,360/2);
     bg.setScale(2.9,2.9);
     
-    this.wheel=this.add.sprite(500,180,'wheel');
+    this.wheel=this.add.sprite(250,180,'wheel');
     this.wheel.setScale(1,1);
      this.physics.add.existing(this.wheel);
-    this.pin=this.add.sprite(510,80,'pin');
+    this.pin=this.add.sprite(260,80,'pin');
     this.pin.setScale(0.3,0.3);
     
     this.canSpin=true;
