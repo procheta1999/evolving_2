@@ -1,4 +1,13 @@
 let gameScene= new Phaser.Scene('Game');
+var gameOptions = {
+ 
+    
+ 
+    
+    slicePrizes: ["1", "2", "3", "4", "5", "6", "7", "8","9","10","11","12"],
+ 
+    
+}
 gameScene.preload=function(){
     this.load.image('background', 'assets/background_new.png');
     this.load.image('wheel', 'assets/wheel_mod.png');
@@ -7,25 +16,37 @@ gameScene.preload=function(){
 gameScene.create=function(){
    
     let bg=this.add.sprite(0,0,'background');
-    bg.setPosition(640/2,360/2);
+    bg.setPosition(640/2,400/2);
     bg.setScale(2.9,2.9);
     
-    this.wheel=this.add.sprite(250,180,'wheel');
+    this.wheel=this.add.sprite(150,180,'wheel',{align:"center"});
     this.wheel.setScale(1,1);
      this.physics.add.existing(this.wheel);
-    this.pin=this.add.sprite(260,80,'pin');
+    this.pin=this.add.sprite(160,80,'pin');
     this.pin.setScale(0.3,0.3);
+    this.text = this.add.text(2,300, "Press to Spin the wheel", {
+            font: "bold 32px Arial",
+            align: "center",
+            color: "black"
+        });
+    this.text_more = this.add.text(80,350, " ", {
+            font: "bold 32px Arial",
+            align: "center",
+            color: "black"
+        });
     
     this.canSpin=true;
 };
         gameScene.update=function(){
             if (this.input.activePointer.isDown){
             if(this.canSpin){
+                this.text.setText("");
             var rounds = Phaser.Math.Between(2, 4);
-                
+               
  
             // then will rotate by a random number from 0 to 360 degrees. This is the actual spin
             var degrees = Phaser.Math.Between(0, 360);
+                var prize = 12 - 1 - Math.floor(degrees / (360 / 12)); 
                 this.canSpin = false;
                 
                 this.tweens.add({
@@ -47,9 +68,18 @@ gameScene.create=function(){
  
                 // function to be executed once the tween has been completed
                 onComplete: function(tween){
+                   
  
                     // displaying prize text
-//                    this.prizeText.setText(gameOptions.slicePrizes[prize]);
+                    this.text.setText(gameOptions.slicePrizes[prize]+" is what you got");
+                    console.log(gameOptions.slicePrizes[prize]);
+                    if(gameOptions.slicePrizes[prize]>=1 && gameOptions.slicePrizes[prize]<=6)
+                        {
+                            this.text_more.setText("Try again");
+                        }
+                    else{
+                        this.text_more.setText("Good");
+                    }
  
                     // player can spin again
                     this.canSpin = true;
@@ -72,7 +102,7 @@ gameScene.create=function(){
         let config={
             type:Phaser.AUTO,
             width:640,
-            height:360,
+            height:400,
             scene: gameScene,
             physics:{
                 default: 'arcade',
