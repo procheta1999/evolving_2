@@ -24,13 +24,13 @@ gameScene.create=function(){
      this.physics.add.existing(this.wheel);
     this.pin=this.add.sprite(140,60,'pin');
     this.pin.setScale(0.3,0.3);
-    this.text = this.add.text(1,340, "Press to Spin the wheel", {
-            font: "bold 50px Arial",
+    this.text = this.add.text(-0.5,340, "Press to Spin the wheel", {
+            font: "bold 30px Arial",
             align: "center",
             color: "black"
         });
     this.text_more = this.add.text(80,390, " ", {
-            font: "bold 50px Arial",
+            font: "bold 30px Arial",
             align: "center",
             color: "black"
         });
