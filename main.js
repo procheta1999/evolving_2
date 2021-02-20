@@ -29,11 +29,11 @@ gameScene.create=function(){
             align: "center",
             color: "black"
         });
-    this.text_more = this.add.text(80,390, " ", {
-            font: "bold 30px Arial",
-            align: "center",
-            color: "black"
-        });
+//     this.text_more = this.add.text(80,390, " ", {
+//             font: "bold 30px Arial",
+//             align: "center",
+//             color: "black"
+//         });
     
     this.canSpin=true;
 };
@@ -73,13 +73,13 @@ gameScene.create=function(){
                     // displaying prize text
                     this.text.setText(gameOptions.slicePrizes[prize]+" is what you got");
                     console.log(gameOptions.slicePrizes[prize]);
-                    if(gameOptions.slicePrizes[prize]>=1 && gameOptions.slicePrizes[prize]<=6)
-                        {
-                            this.text_more.setText("Try again");
-                        }
-                    else{
-                        this.text_more.setText("Good");
-                    }
+//                     if(gameOptions.slicePrizes[prize]>=1 && gameOptions.slicePrizes[prize]<=6)
+//                         {
+//                             this.text_more.setText("Try again");
+//                         }
+//                     else{
+//                         this.text_more.setText("Good");
+//                     }
  
                     // player can spin again
                     this.canSpin = true;
